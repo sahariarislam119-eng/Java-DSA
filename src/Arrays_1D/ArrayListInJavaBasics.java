@@ -9,8 +9,8 @@ public class ArrayListInJavaBasics {
         arr.add(60);
         arr.add(90);
         arr.add(96);
-        for(int ele : arr){
-            System.out.print(ele+" ");
-        }
+        System.out.println(arr);
+        arr.add(0,1);
+        System.out.println(arr);
     }
 }
