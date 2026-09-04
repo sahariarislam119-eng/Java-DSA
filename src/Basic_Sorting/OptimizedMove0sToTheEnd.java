@@ -2,7 +2,7 @@ package Basic_Sorting;
 
 import java.util.Scanner;
 
-public class SelectionSort {
+public class OptimizedMove0sToTheEnd {
     public static int[] arrayInput() {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter n: ");
@@ -23,5 +23,17 @@ public class SelectionSort {
 
     public static void main(String[] args) {
         int[] arr = arrayInput();
+        int i=0,j=0;
+        while(j<arr.length){
+            if(arr[i]==0&&arr[j]!=0){
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j]=temp;
+            }
+            if(arr[i]!=0) i++;
+            j++;
+        }
+        System.out.print("Sorted array: ");
+        printArr(arr);
     }
 }
