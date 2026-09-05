@@ -2,7 +2,9 @@ package Basic_Sorting;
 
 import java.util.Scanner;
 
-public class SelectionSort {
+import java.util.Arrays;
+
+public class FindAPairWithGivenSum {
     public static int[] arrayInput() {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter n: ");
@@ -23,22 +25,23 @@ public class SelectionSort {
 
     public static void main(String[] args) {
         int[] arr = arrayInput();
-        for(int i=0;i<arr.length;i++) {
-            int min = Integer.MAX_VALUE;
-            int minIndex=0;
-            for (int j = i; j < arr.length; j++) {
-                if (arr[j] < min) {
-                    min = arr[j];
-                    minIndex = j;
-                }
+        Arrays.sort(arr);
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter target: ");
+        int target = sc.nextInt();
+        int i=0,j=arr.length-1;
+        while(i<j){
+            if(arr[i]+arr[j]>target){
+                j--;
             }
-            if (arr[i] > min) {
-                int temp = arr[i];
-                arr[i] = arr[minIndex];
-                arr[minIndex] = temp;
+            else if(arr[i]+arr[j]<target){
+                i++;
+            }
+            else{
+                System.out.println("The pair: ("+arr[i]+","+arr[j]+")");
+                return;
             }
         }
-        System.out.print("Sorted Array: ");
-        printArr(arr);
+        System.out.println("There are no pair exist.");
     }
 }

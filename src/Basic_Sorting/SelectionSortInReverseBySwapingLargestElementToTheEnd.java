@@ -2,7 +2,7 @@ package Basic_Sorting;
 
 import java.util.Scanner;
 
-public class SelectionSort {
+public class SelectionSortInReverseBySwapingLargestElementToTheEnd {
     public static int[] arrayInput() {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter n: ");
@@ -23,19 +23,19 @@ public class SelectionSort {
 
     public static void main(String[] args) {
         int[] arr = arrayInput();
-        for(int i=0;i<arr.length;i++) {
-            int min = Integer.MAX_VALUE;
-            int minIndex=0;
-            for (int j = i; j < arr.length; j++) {
-                if (arr[j] < min) {
-                    min = arr[j];
-                    minIndex = j;
+        for (int i = arr.length - 1; i > 0; i--) {
+            int max = Integer.MIN_VALUE;
+            int maxIndex = 0;
+            for (int j = 0; j < i; j++) {
+                if (arr[j] > max) {
+                    max = arr[j];
+                    maxIndex = j;
                 }
             }
-            if (arr[i] > min) {
+            if (arr[i] < max) {
                 int temp = arr[i];
-                arr[i] = arr[minIndex];
-                arr[minIndex] = temp;
+                arr[i] = arr[maxIndex];
+                arr[maxIndex] = temp;
             }
         }
         System.out.print("Sorted Array: ");
