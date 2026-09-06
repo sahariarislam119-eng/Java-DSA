@@ -1,10 +1,8 @@
-package Basic_Sorting;
+package Basic_Sorting_And_Searching;
 
 import java.util.Scanner;
 
-import java.util.Arrays;
-
-public class FindAPairWithGivenSum {
+public class OptimizedMove0sToTheEnd {
     public static int[] arrayInput() {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter n: ");
@@ -25,23 +23,17 @@ public class FindAPairWithGivenSum {
 
     public static void main(String[] args) {
         int[] arr = arrayInput();
-        Arrays.sort(arr);
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Enter target: ");
-        int target = sc.nextInt();
-        int i=0,j=arr.length-1;
-        while(i<j){
-            if(arr[i]+arr[j]>target){
-                j--;
+        int i=0,j=0;
+        while(j<arr.length){
+            if(arr[i]==0&&arr[j]!=0){
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j]=temp;
             }
-            else if(arr[i]+arr[j]<target){
-                i++;
-            }
-            else{
-                System.out.println("The pair: ("+arr[i]+","+arr[j]+")");
-                return;
-            }
+            if(arr[i]!=0) i++;
+            j++;
         }
-        System.out.println("There are no pair exist.");
+        System.out.print("Sorted array: ");
+        printArr(arr);
     }
 }

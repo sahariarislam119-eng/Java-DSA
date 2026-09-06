@@ -1,4 +1,4 @@
-package Basic_Sorting;
+package Basic_Sorting_And_Searching;
 
 import java.util.Scanner;
 import java.util.Arrays;
@@ -24,7 +24,7 @@ public class CommonElement {
     }
 
     public static void main(String[] args) {
-        ArrayList<Integer> arr = new ArrayList<>();
+        ArrayList<Integer> ans = new ArrayList<>();
         int[] a = arrayInput();
         Arrays.sort(a);
         System.out.print("Sorted Array: ");
@@ -39,7 +39,7 @@ public class CommonElement {
         int i=0,j=0;
         while(i<x&&j<y){
             if(a[i]==b[j]){
-                arr.add(a[i]);
+                ans.add(a[i]);
                 i++;
                 j++;
             }
@@ -51,6 +51,6 @@ public class CommonElement {
             }
         }
         System.out.print("Common elements are: ");
-        System.out.println(arr);
+        System.out.println(ans);
     }
 }

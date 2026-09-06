@@ -1,8 +1,8 @@
-package Basic_Sorting;
+package Basic_Sorting_And_Searching;
 
 import java.util.Scanner;
 
-public class OptimizedMove0sToTheEnd {
+public class BubbleSortDescendingOrder {
     public static int[] arrayInput() {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter n: ");
@@ -23,15 +23,17 @@ public class OptimizedMove0sToTheEnd {
 
     public static void main(String[] args) {
         int[] arr = arrayInput();
-        int i=0,j=0;
-        while(j<arr.length){
-            if(arr[i]==0&&arr[j]!=0){
-                int temp = arr[i];
-                arr[i] = arr[j];
-                arr[j]=temp;
+        for(int i=0;i<arr.length-1;i++){
+            boolean isSorted = true;
+            for(int j=0;j<arr.length-1-i;j++){
+                if(arr[j]<arr[j+1]){
+                    isSorted = false;
+                    int temp = arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] = temp;
+                }
             }
-            if(arr[i]!=0) i++;
-            j++;
+            if(isSorted) break;
         }
         System.out.print("Sorted array: ");
         printArr(arr);

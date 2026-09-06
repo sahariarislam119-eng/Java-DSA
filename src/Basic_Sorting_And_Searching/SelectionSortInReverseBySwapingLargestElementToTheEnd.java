@@ -1,8 +1,8 @@
-package Basic_Sorting;
+package Basic_Sorting_And_Searching;
 
 import java.util.Scanner;
 
-public class MoveAll0sToEnd {
+public class SelectionSortInReverseBySwapingLargestElementToTheEnd {
     public static int[] arrayInput() {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter n: ");
@@ -23,16 +23,22 @@ public class MoveAll0sToEnd {
 
     public static void main(String[] args) {
         int[] arr = arrayInput();
-        for(int i=0;i<arr.length-1;i++){
-            for(int j=0;j<arr.length-1-i;j++){
-                if(arr[j]==0){
-                    int temp = arr[j];
-                    arr[j] = arr[j+1];
-                    arr[j+1] = temp;
+        for (int i = arr.length - 1; i > 0; i--) {
+            int max = Integer.MIN_VALUE;
+            int maxIndex = 0;
+            for (int j = 0; j < i; j++) {
+                if (arr[j] > max) {
+                    max = arr[j];
+                    maxIndex = j;
                 }
             }
+            if (arr[i] < max) {
+                int temp = arr[i];
+                arr[i] = arr[maxIndex];
+                arr[maxIndex] = temp;
+            }
         }
-        System.out.print("Sorted array: ");
+        System.out.print("Sorted Array: ");
         printArr(arr);
     }
 }

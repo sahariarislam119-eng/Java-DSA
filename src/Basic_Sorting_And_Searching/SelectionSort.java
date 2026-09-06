@@ -1,8 +1,8 @@
-package Basic_Sorting;
+package Basic_Sorting_And_Searching;
 
 import java.util.Scanner;
 
-public class BubbleSort {
+public class SelectionSort {
     public static int[] arrayInput() {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter n: ");
@@ -23,19 +23,22 @@ public class BubbleSort {
 
     public static void main(String[] args) {
         int[] arr = arrayInput();
-        for(int i=0;i<arr.length-1;i++){
-            boolean isSorted = true;
-            for(int j=0;j<arr.length-1-i;j++){
-                if(arr[j]>arr[j+1]){
-                    isSorted = false;
-                    int temp = arr[j];
-                    arr[j] = arr[j+1];
-                    arr[j+1] = temp;
+        for(int i=0;i<arr.length;i++) {
+            int min = Integer.MAX_VALUE;
+            int minIndex=0;
+            for (int j = i; j < arr.length; j++) {
+                if (arr[j] < min) {
+                    min = arr[j];
+                    minIndex = j;
                 }
             }
-            if(isSorted) break;
+            if (arr[i] > min) {
+                int temp = arr[i];
+                arr[i] = arr[minIndex];
+                arr[minIndex] = temp;
+            }
         }
-        System.out.print("Sorted array: ");
+        System.out.print("Sorted Array: ");
         printArr(arr);
     }
 }

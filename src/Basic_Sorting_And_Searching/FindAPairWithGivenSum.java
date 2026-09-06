@@ -1,8 +1,10 @@
-package Basic_Sorting;
+package Basic_Sorting_And_Searching;
 
 import java.util.Scanner;
 
-public class SelectionSortInReverseBySwapingLargestElementToTheEnd {
+import java.util.Arrays;
+
+public class FindAPairWithGivenSum {
     public static int[] arrayInput() {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter n: ");
@@ -23,22 +25,23 @@ public class SelectionSortInReverseBySwapingLargestElementToTheEnd {
 
     public static void main(String[] args) {
         int[] arr = arrayInput();
-        for (int i = arr.length - 1; i > 0; i--) {
-            int max = Integer.MIN_VALUE;
-            int maxIndex = 0;
-            for (int j = 0; j < i; j++) {
-                if (arr[j] > max) {
-                    max = arr[j];
-                    maxIndex = j;
-                }
+        Arrays.sort(arr);
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter target: ");
+        int target = sc.nextInt();
+        int i=0,j=arr.length-1;
+        while(i<j){
+            if(arr[i]+arr[j]>target){
+                j--;
             }
-            if (arr[i] < max) {
-                int temp = arr[i];
-                arr[i] = arr[maxIndex];
-                arr[maxIndex] = temp;
+            else if(arr[i]+arr[j]<target){
+                i++;
+            }
+            else{
+                System.out.println("The pair: ("+arr[i]+","+arr[j]+")");
+                return;
             }
         }
-        System.out.print("Sorted Array: ");
-        printArr(arr);
+        System.out.println("There are no pair exist.");
     }
 }
