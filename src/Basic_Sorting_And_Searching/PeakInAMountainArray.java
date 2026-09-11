@@ -17,7 +17,7 @@ public class PeakInAMountainArray {
 
     public static void main(String[] args) {
         int[] arr = arrayInput();
-        int high=arr.length-1,low=0;
+        int high=arr.length-2,low=1;
         while(low<=high){
             int mid = (low+high)/2;
             if(arr[mid]>arr[mid-1] && arr[mid]>arr[mid+1]){
