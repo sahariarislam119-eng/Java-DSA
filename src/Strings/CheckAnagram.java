@@ -5,21 +5,11 @@ import java.util.Scanner;
 
 public class CheckAnagram {
     public static boolean areAnagrams(String s1, String s2) {
-        // code here
         if(s1.length()!=s2.length()) return false;
-
-        int[] arr = new int[s1.length()];
-        for(int i=0;i<arr.length;i++){
-            arr[i]=(int)s1.charAt(i);
-        }
+        char[] arr = s1.toCharArray();
         Arrays.sort(arr);
-
-        int[] brr = new int[s2.length()];
-        for(int i=0;i<brr.length;i++){
-            brr[i]=(int)s2.charAt(i);
-        }
+        char[] brr = s2.toCharArray();
         Arrays.sort(brr);
-
         for(int i=0;i<arr.length;i++){
             if(arr[i]!=brr[i]) return false;
         }
