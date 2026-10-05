@@ -1,5 +1,6 @@
 package Arrays_2D_Matrix;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class MatrixMultiplication {
@@ -17,6 +18,22 @@ public class MatrixMultiplication {
             }
         }
         return arr;
+    }
+
+    public static ArrayList<ArrayList<Integer>> multiply(int[][] arr, int[][] brr) {
+        // code here
+        ArrayList<ArrayList<Integer>> ans = new ArrayList<>();
+        for(int i=0;i<arr.length;i++){
+            ans.add(new ArrayList<>());
+            for(int j=0;j<brr[0].length;j++){
+                int sum=0;
+                for(int k=0;k<arr[0].length;k++){
+                    sum+= (arr[i][k]*brr[k][j]);
+                }
+                ans.get(i).add(sum);
+            }
+        }
+        return ans;
     }
 
     public static void main(String[] args) {
